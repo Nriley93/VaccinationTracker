@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Author: Nick Riley -->
+<meta charset="ISO-8859-1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Login - Page</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container-fluid text-center">
+		<h1>Login</h1>
+	</div>
+	<form th:action="@{/login}" method="post"
+		style="max-width: 350px; margin: 0 auto;">
+		<div class="border border-secondary p-3 rounded">
+			<p>
+				<input type="email" name="email" class="form-control"
+					placeholder="E-mail" required autofocus />
+			</p>
+			<p>
+				<input type="password" name="password" class="form-control"
+					placeholder="Password" required />
+			</p>
+			<p></p>
+			<p>
+				<input type="submit" value="Login" class="btn btn-primary">
+			</p>
+		</div>
+	</form>
+
+	<div class="container-fluid text-center">
+		<h3><a th:href="@{/register}">Register</a></h3>
+	</div>
+</body>
+</html>

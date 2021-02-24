@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Author: Nick Riley -->
+<meta charset="ISO-8859-1">
+<title>New Patient</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="container text-center">
+		<div>
+			<h1>Enter a new patient</h1>
+		</div>
+		<div>
+			<h2>Patient Information</h2>
+		</div>
+
+		<form th:action="@{/patient/save}" method="post"
+			style="max-width: 600px; margin: 0 auto">
+
+			<div class="m-3">
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">First Name</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.fname}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Last Name</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.lname}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Address</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.address}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">City</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.city}" class="form-control"
+							required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Area Code</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.zipcode}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Email</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.email}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Phone</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.phone}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Gender</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.sex}" class="form-control"
+							required autofocus />
+					</div>
+				</div>
+
+				<div>
+					<h2>Allergies</h2>
+					<p>List all that apply</p>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4">Drug Allergy</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${healthRecord.drugAllergy}"
+							class="form-control" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4">Food Allergy</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${healthRecord.foodAllergy}"
+							class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4">Pet Allergy</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${healthRecord.petAllergy}"
+							class="form-control"/>
+					</div>
+				</div>
+
+				<div>
+					<h2>Medications</h2>
+					<p>List all that apply</p>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4">Prescriptions</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${healthRecord.medications}"
+							class="form-control" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4">Currently Taking</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${healthRecord.medications}"
+							class="form-control" />
+					</div>
+				</div>
+
+				<div>
+					<h2>Pre-existing medical conditions</h2>
+					<p>Select all that apply</p>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-6">Cancer</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							value="Cancer" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-6">Depression</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							value="Depression" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-6">Heart Disease</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							value="Heart Disease" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-6">AIDS/HIV</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							value="AIDS/HIV" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-6">Diabetes</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							value="Diabetes" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-6">Pregnant</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							value="Pregnant" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4">Other</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${healthRecord.preconditions}"
+							class="form-control" />
+					</div>
+				</div>
+				
+				<div>
+					<h2>Additional Comments</h2>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-4">Notes</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${healthRecord.notes}"
+							class="form-control" />
+					</div>
+				</div>
+<!--  	
+				<div>
+					<h2>Vaccination</h2>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Date Vaccination Recieved</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="visit.visitDate"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Vaccine ID</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${visit.vacID}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Providers Name</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${visit.proID}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Dose</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${visit.dose}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Adverse Reactions</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${visit.reactions}"
+							class="form-control" required autofocus />
+					</div>
+				</div>
+-->	
+				<div class="text-center p-3">
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Author: Nick Riley -->
+<meta charset="ISO-8859-1">
+<title>User - HomePage</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="container text-center">
+		<div>
+			<h1>Vaccination Tracker HomePage!</h1>
+			<p>Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
+		</div>
+		<div class="p-2">
+			<a class="h2" th:href="@{/patient/new}"> Add New Patient</a>
+		</div>
+		
+		<div>
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
