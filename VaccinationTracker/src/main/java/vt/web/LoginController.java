@@ -17,17 +17,22 @@ import vt.data.UserRepository;
 @Controller
 
 public class LoginController {
-	
+
 	@Autowired
 	private UserRepository repo;
-
+	
 	@GetMapping("/")
+	public String index() {
+		return "home";
+	}
+
+	@GetMapping("/login")
 	public String viewLogin() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) {
 			return "login";
 		}
-		return "redirect:homepage";
+		return "redirect:pageSelect";
 	}
 	
 	@GetMapping("/register")
@@ -35,11 +40,6 @@ public class LoginController {
 		model.addAttribute("user", new User());
 		
 		return "signup_form";
-	}
-	
-	@GetMapping("/homepage")
-	public String homePage() {
-		return "homepage";
 	}
 	
 	@PostMapping("/process_register")

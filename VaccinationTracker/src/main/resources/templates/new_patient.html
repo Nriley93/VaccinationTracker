@@ -39,6 +39,44 @@
 				</div>
 
 				<div class="form-group row">
+					<label class="col-form-label col-sm-4">DOB</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.dob}" class="form-control"
+							required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Sex</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.sex}" class="form-control"
+							required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Race</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${patient.race}" class="form-control"
+							required autofocus />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="ethnicity" class="col-form-label col-sm-4">Ethnicity</label>
+					<div class="col-sm-6">
+						<select th:field="${patient.ethnicity}" name="ethnicity"
+							id="ethnicity">
+							<option th:value="white">White</option>
+							<option th:value="black">Black</option>
+							<option th:value="latino">Latino</option>
+							<option th:value="Asian">Asian</option>
+							<option th:value="other">Other</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group row">
 					<label class="col-form-label col-sm-4">Address</label>
 					<div class="col-sm-6">
 						<input type="text" th:field="${patient.address}"
@@ -55,7 +93,7 @@
 				</div>
 
 				<div class="form-group row">
-					<label class="col-form-label col-sm-4">Area Code</label>
+					<label class="col-form-label col-sm-4">Zip Code</label>
 					<div class="col-sm-6">
 						<input type="text" th:field="${patient.zipcode}"
 							class="form-control" required autofocus />
@@ -78,166 +116,159 @@
 					</div>
 				</div>
 
-				<div class="form-group row">
-					<label class="col-form-label col-sm-4">Gender</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${patient.sex}" class="form-control"
-							required autofocus />
-					</div>
+				<div>
+					<h2>Health Information</h2>
+					<p>
+						Have you had an allergic reaction to any of the following,<br>
+						Check all that apply
+					</p>
 				</div>
 
-				<div>
-					<h2>Allergies</h2>
-					<p>List all that apply</p>
-				</div>
 				<div class="form-group row">
-					<label class="col-sm-4">Drug Allergy</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${healthRecord.drugAllergy}"
-							class="form-control" />
+					<label class="col-sm-6">Polyethylene Glycol</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.allergies}"
+							th:value="'Polyethylene Glycol'" />
 					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-4">Food Allergy</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${healthRecord.foodAllergy}"
-							class="form-control"/>
+					<label class="col-sm-6">Polysorbate</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.allergies}"
+							th:value="'Polysorbate'" />
 					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-4">Pet Allergy</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${healthRecord.petAllergy}"
-							class="form-control"/>
+					<label class="col-sm-6">Latex</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.allergies}"
+							th:value="'Latex'" />
 					</div>
-				</div>
-
-				<div>
-					<h2>Medications</h2>
-					<p>List all that apply</p>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-4">Prescriptions</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${healthRecord.medications}"
-							class="form-control" />
+					<label class="col-sm-6">A previous dose of COVID-19 vaccine</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.allergies}"
+							th:value="'Previous dose of COVID-19 vaccine'" />
 					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-4">Currently Taking</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${healthRecord.medications}"
-							class="form-control" />
+					<label class="col-sm-6">Another vaccine (other than
+						COVID-19 vaccine)</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.allergies}"
+							th:value="'Another vaccine (other than COVID-19 vaccine)'" />
 					</div>
 				</div>
 
 				<div>
 					<h2>Pre-existing medical conditions</h2>
-					<p>Select all that apply</p>
+					<p>
+						Do you have a pre-existing condition, <br>check all that
+						apply
+					</p>
 				</div>
 				<div class="form-group row">
+					<label class="col-sm-6">Weakened immune system</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							th:value="'Weakened immune system'" />
+					</div>
+					<label class="col-sm-6">Bleeding disorder or taking a blood
+						thinner</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							th:value="'Bleeding disorder/blood thinners'" />
+					</div>
+					<label class="col-sm-6">Guillain-Barre syndrome</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							th:value="'Guillain-Barre syndrome'" />
+					</div>
+					<label class="col-sm-6">Bell’s palsy</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							th:value="'bells palsy'" />
+					</div>
+					<label class="col-sm-6">Heart condition</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							th:value="'heart condition'" />
+					</div>
+					<label class="col-sm-6">Pregnancy</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							th:value="'pregnacy'" />
+					</div>
+					<label class="col-sm-6">Intellectual disabilities</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.preconditions}"
+							th:value="'Intellectual disabilities'" />
+					</div>
 					<label class="col-sm-6">Cancer</label>
 					<div class="col-sm-1">
 						<input type="checkbox" th:field="${healthRecord.preconditions}"
-							value="Cancer" />
+							th:value="'Cancer'" />
 					</div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-6">Depression</label>
-					<div class="col-sm-1">
-						<input type="checkbox" th:field="${healthRecord.preconditions}"
-							value="Depression" />
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-6">Heart Disease</label>
-					<div class="col-sm-1">
-						<input type="checkbox" th:field="${healthRecord.preconditions}"
-							value="Heart Disease" />
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-6">AIDS/HIV</label>
-					<div class="col-sm-1">
-						<input type="checkbox" th:field="${healthRecord.preconditions}"
-							value="AIDS/HIV" />
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-6">Diabetes</label>
-					<div class="col-sm-1">
-						<input type="checkbox" th:field="${healthRecord.preconditions}"
-							value="Diabetes" />
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-6">Pregnant</label>
-					<div class="col-sm-1">
-						<input type="checkbox" th:field="${healthRecord.preconditions}"
-							value="Pregnant" />
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-4">Other</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${healthRecord.preconditions}"
-							class="form-control" />
-					</div>
-				</div>
-				
 				<div>
-					<h2>Additional Comments</h2>
+					<h2>Additional Questions</h2>
 				</div>
 				<div class="form-group row">
-					<label class="col-sm-4">Notes</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${healthRecord.notes}"
-							class="form-control" />
+					<label class="col-sm-6">Have you received any vaccine in
+						the last 14 days?</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.notes}"
+							th:value="'received any vaccine in the last 14 days? YES'" />
+					</div>
+					<label class="col-sm-6">Have you ever had a positive test
+						for COVID-19?</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${healthRecord.notes}"
+							th:value="'tested positive for COVID-19? YES'" />
 					</div>
 				</div>
-<!--  	
 				<div>
-					<h2>Vaccination</h2>
+					<h2>Vaccination Information</h2>
 				</div>
 				<div class="form-group row">
-					<label class="col-form-label col-sm-4">Date Vaccination Recieved</label>
+					<label class="col-form-label col-sm-4">Vaccine Administered</label>
 					<div class="col-sm-6">
-						<input type="text" th:field="visit.visitDate"
+						<select th:field="${visit.vaccine}" name="vaccine" id="vaccine">
+							<option th:value="'Pfizer-BioNTech'">Pfizer-BioNTech</option>
+							<option th:value="'Moderna'">Moderna</option>
+							<option th:value="'Johnson & Johnson'">Johnson & Johnson</option>
+						</select>
+					</div>
+					<label class="col-form-label col-sm-4">Which dose is this?</label>
+					<div class="col-sm-6">
+						<select th:field="${visit.dose}" name="vaccine" id="vaccine">
+							<option th:value="'1'">1</option>
+							<option th:value="'2'">2</option>
+						</select>
+					</div>
+
+					<label class="col-form-label col-sm-4">Date vaccination was
+						received</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="${visit.vaccinationDt}"
 							class="form-control" required autofocus />
 					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-form-label col-sm-4">Vaccine ID</label>
+
+					<label class="col-form-label col-sm-4">Facility where
+						patient was treated?</label>
 					<div class="col-sm-6">
-						<input type="text" th:field="${visit.vacID}"
-							class="form-control" required autofocus />
+						<select th:field="${visit.facility}" name="facility" id="facility">
+							<option th:value="'1'">facility 1</option>
+							<option th:value="'2'">facility 2</option>
+							<option th:value="'3'">facility 3</option>
+						</select>
+					</div>
+
+					<label class="col-sm-6">Did the patient have an adverse
+						reaction?</label>
+					<div class="col-sm-1">
+						<input type="checkbox" th:field="${visit.adverseReaction}"
+							value="true" />
 					</div>
 				</div>
-				<div class="form-group row">
-					<label class="col-form-label col-sm-4">Providers Name</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${visit.proID}"
-							class="form-control" required autofocus />
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-form-label col-sm-4">Dose</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${visit.dose}"
-							class="form-control" required autofocus />
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-form-label col-sm-4">Adverse Reactions</label>
-					<div class="col-sm-6">
-						<input type="text" th:field="${visit.reactions}"
-							class="form-control" required autofocus />
-					</div>
-				</div>
--->	
+
 				<div class="text-center p-3">
 					<button type="submit" class="btn btn-primary">Save</button>
 				</div>
+
 			</div>
 		</form>
 	</div>

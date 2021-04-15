@@ -50,14 +50,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-//			.antMatchers("/vaccine_form").authenticated()
 			.anyRequest().permitAll()
 			.and()
 			.formLogin()
 				.loginPage("/login")
 				.usernameParameter("email")
 				.passwordParameter("password")
-				.defaultSuccessUrl("/homepage")
+				.defaultSuccessUrl("/pageSelect")
 				.permitAll()
 			.and()
 			.logout().logoutSuccessUrl("/").permitAll();

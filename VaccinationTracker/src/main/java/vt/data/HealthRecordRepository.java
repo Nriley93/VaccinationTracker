@@ -6,6 +6,6 @@ import vt.HealthRecord;
 
 //Author: Nick Riley
 
-public interface HealthRecordRepository extends JpaRepository<HealthRecord, Integer> {
+public interface HealthRecordRepository extends JpaRepository<HealthRecord, Long> {
 
 }
